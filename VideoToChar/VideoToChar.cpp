@@ -6,10 +6,11 @@ using namespace cv;
 int main()
 {
 	Mat frame, gray;
-	VideoCapture video("./test.mp4");
+	VideoCapture video("./video.mp4");
 	if (!video.isOpened())
 	{
 		cout << "视频未成功打开" << endl;
+		getchar();
 		return -1;
 	}
 	int cols = video.get(CAP_PROP_FRAME_WIDTH);
@@ -17,8 +18,8 @@ int main()
 	int frame_count = video.get(CAP_PROP_FRAME_COUNT);
 	int fps = video.get(CAP_PROP_FPS);
 	float speed = 1;  // 播放倍速
-	int delty = 20;
-	int deltx = 10;
+	int delty = 16;
+	int deltx = 9;
 	int value = 0;
 	int n = 0;
 	char c[] = ".,_-=+*`^~:!1&%@#$";
@@ -47,10 +48,16 @@ int main()
 		n++;
 	}
 	// -- play
+	system("cls");
+	cout << "读取完毕, 按任意键播放" << endl;
+	getchar();
 	for (int i = 0; i < v.size(); i++){
 		SetConsoleCursorPosition(h, pos);
 		cout << v[i];
 		waitKey(1000 / fps / speed);
 	}
+	system("cls");
+	cout << "播放完毕, 按任意键退出" << endl;
+	getchar();
 	return 0;
 }
