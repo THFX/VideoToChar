@@ -1,5 +1,6 @@
 ﻿cmake_minimum_required (VERSION 3.8)
 add_executable (VideoToChar "VideoToChar.cpp" "VideoToChar.h")
+set(OpenCV_DIR D:/opencv/build)
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 link_directories(${OpenCV_LIBRARY_DIRS})
